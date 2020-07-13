@@ -50,7 +50,7 @@ def base64_to_tensor(data):  # 将base64编码转换为张量并升至4维
 
 def predict(tensor_data):  # 预测张量图像
     cnn = CNN()
-    # cnn.eval()
+    cnn.eval()
     cnn.load_state_dict(torch.load('model.pkl'))
     v_image = Variable(tensor_data)
     predict_label = cnn(v_image)
