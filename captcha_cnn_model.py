@@ -9,19 +9,19 @@ class CNN(nn.Module):
         self.layer1 = nn.Sequential(
             nn.Conv2d(1, 32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
-            nn.Dropout(0.5),  # drop 50% of the neuron
+            # nn.Dropout(0.5),  # drop 50% of the neuron
             nn.ReLU(),
             nn.MaxPool2d(2))
         self.layer2 = nn.Sequential(
             nn.Conv2d(32, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
-            nn.Dropout(0.5),  # drop 50% of the neuron
+            # nn.Dropout(0.5),  # drop 50% of the neuron
             nn.ReLU(),
             nn.MaxPool2d(2))
         self.layer3 = nn.Sequential(
             nn.Conv2d(64, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
-            nn.Dropout(0.5),  # drop 50% of the neuron
+            # nn.Dropout(0.5),  # drop 50% of the neuron
             nn.ReLU(),
             nn.MaxPool2d(2))
         self.fc = nn.Sequential(
