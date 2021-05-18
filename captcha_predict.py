@@ -11,14 +11,12 @@ import my_dataset
 from captcha_cnn_model import CNN
 
 
-
 def main():
     cnn = CNN()
     cnn.eval()
     cnn.load_state_dict(torch.load('model.pkl'))
 
     predict_dataloader = my_dataset.get_predict_data_loader()
-
 
     for i, images in enumerate(predict_dataloader):
         v_image = Variable(images)

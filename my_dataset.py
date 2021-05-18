@@ -23,10 +23,10 @@ class mydataset(Dataset):
         if self.transform is not None:
             image = self.transform(image)
         # label = ohe.encode(image_name[0:4]) # 为了方便，在生成图片的时候，图片文件的命名格式 "4个数字或者数字_时间戳.PNG", 4个字母或者即是图片的验证码的值，字母大写,同时对该值做 one-hot 处理
-        # for predict test
+        # for predict test: 预测时，标签应为空
         label = ''
-        # label = ohe.encode(image_name)
-        # label = nohe.one_hot_encode(image_name)
+        label = ohe.encode(image_name[:4])
+        # label = ohe.one_hot_encode(image_name)
         return image, label
 
 transform = transforms.Compose([
@@ -35,19 +35,19 @@ transform = transforms.Compose([
     transforms.ToTensor(),
     # transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
+
+
 def get_train_data_loader():
 
     dataset = mydataset(captcha_setting.TRAIN_DATASET_PATH, transform=transform)
     return DataLoader(dataset, batch_size=64, shuffle=True)
 
+
 def get_test_data_loader():
-    dataset = mydataset(captcha_setting.TEST_DATASET_PATH, transform=transform)
+    dataset = mydataset('/Users/hao/Desktop/桌面 - Hao的MacBook Pro/发件箱/验证码识别/测试集', transform=transform)
     return DataLoader(dataset, batch_size=1, shuffle=True)
+
 
 def get_predict_data_loader():
-    dataset = mydataset(captcha_setting.PREDICT_DATASET_PATH, transform=transform)
-    return DataLoader(dataset, batch_size=1, shuffle=True)
-
-def get_customs_data_loader():
     dataset = mydataset(captcha_setting.PREDICT_DATASET_PATH, transform=transform)
     return DataLoader(dataset, batch_size=1, shuffle=True)

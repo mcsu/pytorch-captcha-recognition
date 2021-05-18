@@ -10,7 +10,7 @@ import one_hot_encoding
 def main():
     cnn = CNN()
     cnn.eval()
-    cnn.load_state_dict(torch.load('model.pkl'))
+    cnn.load_state_dict(torch.load('model v2.5.pkl'))
     print("load cnn net.")
 
     test_dataloader = my_dataset.get_test_data_loader()
@@ -31,11 +31,12 @@ def main():
         total += labels.size(0)
         if(predict_label == true_label):
             correct += 1
+        else:
+            print("predict_label " + predict_label)
+            print("true_label " + true_label)
         if(total%200==0):
             print('Test Accuracy of the model on the %d test images: %f %%' % (total, 100 * correct / total))
     print('Test Accuracy of the model on the %d test images: %f %%' % (total, 100 * correct / total))
 
 if __name__ == '__main__':
     main()
-
-
