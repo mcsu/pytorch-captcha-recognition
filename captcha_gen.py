@@ -6,12 +6,14 @@ import time
 import captcha_setting
 import os
 
+
 def random_captcha():
     captcha_text = []
     for i in range(captcha_setting.MAX_CAPTCHA):
         c = random.choice(captcha_setting.ALL_CHAR_SET)
         captcha_text.append(c)
     return ''.join(captcha_text)
+
 
 # 生成字符对应的验证码
 def gen_captcha_text_and_image():
@@ -20,6 +22,7 @@ def gen_captcha_text_and_image():
     captcha_text = random_captcha()
     captcha_image = Image.open(image.generate(captcha_text))
     return captcha_text, captcha_image
+
 
 if __name__ == '__main__':
     count = 10

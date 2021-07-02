@@ -10,7 +10,7 @@ import one_hot_encoding
 def main():
     cnn = CNN()
     cnn.eval()
-    cnn.load_state_dict(torch.load('model v2.5.pkl'))
+    cnn.load_state_dict(torch.load('model 20210519-2500.pkl'))
     print("load cnn net.")
 
     test_dataloader = my_dataset.get_test_data_loader()

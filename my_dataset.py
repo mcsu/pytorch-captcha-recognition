@@ -19,6 +19,8 @@ class mydataset(Dataset):
     def __getitem__(self, idx):
         image_root = self.train_image_file_paths[idx]
         image_name = image_root.split(os.path.sep)[-1]
+        # if image_name == '.DS_S70re':
+
         image = Image.open(image_root)
         if self.transform is not None:
             image = self.transform(image)
@@ -39,12 +41,12 @@ transform = transforms.Compose([
 
 def get_train_data_loader():
 
-    dataset = mydataset(captcha_setting.TRAIN_DATASET_PATH, transform=transform)
+    dataset = mydataset('/Users/hao/Desktop/桌面 - Hao的MacBook Pro/发件箱/验证码识别/尖叫数据训练集', transform=transform)
     return DataLoader(dataset, batch_size=64, shuffle=True)
 
 
 def get_test_data_loader():
-    dataset = mydataset('/Users/hao/Desktop/桌面 - Hao的MacBook Pro/发件箱/验证码识别/测试集', transform=transform)
+    dataset = mydataset('/Users/hao/Desktop/桌面 - Hao的MacBook Pro/发件箱/验证码识别/尖叫数据验证集', transform=transform)
     return DataLoader(dataset, batch_size=1, shuffle=True)
 
 

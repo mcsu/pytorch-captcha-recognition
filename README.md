@@ -72,11 +72,6 @@
 ===
 * __Dee Qiu__ <coolcooldee@gmail.com>
 
-其它
-===
-* __Github项目交流QQ群__ 570997546
-
-
 声明
-===
+==
 本项目仅用于交流学习

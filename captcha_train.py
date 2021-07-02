@@ -34,10 +34,10 @@ def main():
             if (i+1) % 10 == 0:
                 print("epoch:", epoch, "step:", i, "loss:", loss.item())
             if (i+1) % 100 == 0:
-                torch.save(cnn.state_dict(), "./model.pkl")   #current is model.pkl
+                torch.save(cnn.state_dict(), "./model 20200712-1200.pkl")   #current is model 20200712-1200.pkl
                 print("save model")
         print("epoch:", epoch, "step:", i, "loss:", loss.item())
-    torch.save(cnn.state_dict(), "./model v2.5.pkl")   #current is model.pkl
+    torch.save(cnn.state_dict(), "./model 20210702-1000.pkl")   #current is model 20200712-1200.pkl
     print("save last model")
 
 

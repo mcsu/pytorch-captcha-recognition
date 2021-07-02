@@ -14,7 +14,7 @@ from captcha_cnn_model import CNN
 def main():
     cnn = CNN()
     cnn.eval()
-    cnn.load_state_dict(torch.load('model.pkl'))
+    cnn.load_state_dict(torch.load('model 20210702-1000.pkl'))
 
     predict_dataloader = my_dataset.get_predict_data_loader()
 
@@ -22,8 +22,6 @@ def main():
         v_image = Variable(images)
         print(type(v_image))
         print(v_image.size())
-
-
 
         predict_label = cnn(v_image)
 
